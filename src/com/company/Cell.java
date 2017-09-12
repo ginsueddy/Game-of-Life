@@ -7,20 +7,16 @@ public class Cell {
         this.alive = alive;
     }
 
-    public void underPopulation (){
+    public void death (){
         this.alive = false;
     }
 
-    public void overPopulation(){
-        this.alive = false;
-    }
-
-    public void surrvive(){
+    public void life(){
         this.alive = true;
     }
 
-    public void repopulate(){
-        this.alive = true;
+    public boolean cellState(){
+        return alive;
     }
 
 }
