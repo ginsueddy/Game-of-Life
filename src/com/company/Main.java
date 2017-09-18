@@ -8,14 +8,17 @@ public class Main {
 	// write your code here
         Grid g = new Grid();
         g.initialFill();
-        boolean test [][] = g.returnGrid();
-        for(int i = 0; i < 2; i++){
+        boolean myGrid [][];
+        for(int i = 0; i < 3; i++){
             System.out.println("******");
-            for(int j = 0; j < test.length; j++){
-                System.out.println(Arrays.toString(test[i]));
-                System.out.println();
+            myGrid = g.returnGrid();
+            for(int j = 0; j < myGrid.length; j++){
+                System.out.println(Arrays.toString(myGrid[j]));
             }
             System.out.println("******");
+            System.out.println();
+            g.updateGrid();
+
         }
 
     }
