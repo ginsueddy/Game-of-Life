@@ -4,8 +4,8 @@ import java.util.Random;
 
 public class Grid {
 
-    private Cell grid [][] = new Cell[5][5];
-    private boolean cellStatus [][] = new boolean[5][5];
+    private Cell grid [][] = new Cell[10][10];
+    //private boolean cellStatus [][] = new boolean[5][5];
 
     public void initialFill(){
         Random rand = new Random();
@@ -21,7 +21,7 @@ public class Grid {
                 }
                 Cell cell = new Cell(alive);
                 grid[r][c] = cell;
-                cellStatus[r][c] = cell.cellState();
+                //cellStatus[r][c] = cell.cellState();
             }
         }
     }
@@ -151,23 +151,23 @@ public class Grid {
         Cell gridCopy[][] = grid;
         for(int r = 0; r < grid.length; r++){
             for(int c = 0; c < grid[r].length; c++){
-                if(getNeighborCount(grid, r, c) < 2 || getNeighborCount(grid, r, c) > 3){
-                    gridCopy[r][c].death();
-                }
-                else{
+                if(getNeighborCount(grid, r, c) == 3){
                     gridCopy[r][c].life();
                 }
+                else if(getNeighborCount(grid, r, c) == 2 && !grid[r][c].cellState()){
+                    gridCopy[r][c].life();
+                }
+                else{
+                    gridCopy[r][c].death();
+                }
             }
         }
-        for(int r = 0; r < gridCopy.length; r++){
-            for(int c = 0; c < gridCopy[r].length; c++){
-                cellStatus[r][c] = gridCopy[r][c].cellState();
-            }
-        }
+        grid = gridCopy;
     }
 
-    public boolean[][] returnGrid(){
-        return cellStatus;
+    public Cell[][] returnGrid(){
+        //return cellStatus;
+        return grid;
     }
 
 }

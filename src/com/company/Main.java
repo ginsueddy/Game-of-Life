@@ -8,14 +8,22 @@ public class Main {
 	// write your code here
         Grid g = new Grid();
         g.initialFill();
-        boolean myGrid [][];
-        for(int i = 0; i < 3; i++){
-            System.out.println("******");
+        Cell myGrid [][];
+        while(true){
+            System.out.println("------------------------------");
             myGrid = g.returnGrid();
-            for(int j = 0; j < myGrid.length; j++){
-                System.out.println(Arrays.toString(myGrid[j]));
+            for(int r = 0; r < myGrid.length; r++){
+                for(int c = 0; c < myGrid[r].length; c++){
+                    if(myGrid[r][c].cellState()){
+                        System.out.print(" * ");
+                    }
+                    else{
+                        System.out.print("   ");
+                    }
+                }
+                System.out.println();
             }
-            System.out.println("******");
+            System.out.println("------------------------------");
             System.out.println();
             g.updateGrid();
 
