@@ -5,7 +5,6 @@ import java.util.Random;
 public class Grid {
 
     private Cell grid [][] = new Cell[10][10];
-    //private boolean cellStatus [][] = new boolean[5][5];
 
     public void initialFill(){
         Random rand = new Random();
@@ -21,7 +20,6 @@ public class Grid {
                 }
                 Cell cell = new Cell(alive);
                 grid[r][c] = cell;
-                //cellStatus[r][c] = cell.cellState();
             }
         }
     }
@@ -166,7 +164,6 @@ public class Grid {
     }
 
     public Cell[][] returnGrid(){
-        //return cellStatus;
         return grid;
     }
 
